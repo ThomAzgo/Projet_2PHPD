@@ -16,6 +16,6 @@
 
     $AfficherFormulaire = 1;
 
-    if (isset($_POST['pseudo'],$_POST['mdp']))
+    if (isset($_POST['pseudo'],$_POST['mdp'])) 
     
 ?>
