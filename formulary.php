@@ -8,7 +8,7 @@
     $mysqli = mysqli_connect($BDD['host'],
                             $BDD['pass'],
                             $BDD['db']);
-    
+
     if(!$mysqli) {
         echo "Connexion échoué.";
         exit;
