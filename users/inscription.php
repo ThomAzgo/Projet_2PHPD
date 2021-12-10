@@ -14,8 +14,6 @@
         exit;
     }
 
-    $AfficherFormulaire = 1;
-
     if (isset($_POST['pseudo'],$_POST['mdp'])) {
         if(empty($_POST['pseudo'])) {
             echo "Le champ Pseudo est vide.";
@@ -32,21 +30,6 @@
             echo "Une erreur s'est produite: ".mysqli_error($mysqli);
         } else {
             echo "Vous êtes inscrit avec succès!";
-
-            $AfficherFormulaire=0;
-
         }
     }
-    if($AfficherFormulaire==1){      
-        ?> 
-    <br />
-        <form method="post" action="inscription.php">
-        Pseudo (a-z0-9) : <input type="text" name="pseudo">
-        <br />
-        Mot de passe : <input type="password" name="mdp">
-        <br />
-        <input type="submit" value="S'inscrire">
-    </form>
-    <?php
-}
 ?>
