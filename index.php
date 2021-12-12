@@ -3,19 +3,17 @@
     <head>
         <meta charset="UTF-8">
         <title>JeansStore - <?php echo $page_title; ?></title>
-        <link rel="stylesheet" media="all" href="../stylesheets/staff.css" />
+        <link rel="stylesheet" media="all" href="stylesheets/style.css" />
     </head> 
-    <body>
-        <header>
-                <h1>JeansStore Staff Area</h1>
-        </header>
-        
-        <navigation>
-            <ul>
-                <li><a href="<?php echo '../index.php'; ?>">Menu</a></li>
-            </ul>
-        </navigation>
-
+    <body>  
+        <div class="navbar">
+            <a href="<?php echo 'authentification/inscription.html'; ?>">Login</a>
+            <a href="<?php echo 'index.php'; ?>">Browse</a>
+            <a href="<?php echo 'index.php'; ?>">Cart</a>
+        </div>
+        <main>
+                <h1>JeansStore Online</h1>
+        </main>
         <footer>
             &copy; <?php echo date('Y'); ?> Jeans Store
         </footer>

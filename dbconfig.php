@@ -2,8 +2,8 @@
     $database = [
             'host' => 'dbseverhost',
             'database' => 'database',
-            'username' => 'username',
-            'password' => 'password',
+            'username' => 'root',
+            'password' => '',
     ];
 
     $dsn = "mysql:host={$database['host']};dbname={$database['database']};charset=utf8";
