@@ -4,6 +4,7 @@
     background-color: #333;
     position: relative;
     padding: 0;
+    top: 0;
     width: 100%;
   }
   
@@ -14,6 +15,7 @@
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   }
   
   .navbar a:hover {
@@ -21,8 +23,10 @@
     color: black;
   }
   
-  .main {
-    margin-top: 30px;
+.main {
+  margin-top: 30px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
 }
 
 
@@ -30,10 +34,10 @@
     overflow: hidden;
     position: fixed;
     background-color: #333;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
     bottom: 0;
     width: 100%;
-  }
-  
-  .main {
-    margin-bottom: 30px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   }

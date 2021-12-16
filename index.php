@@ -7,15 +7,16 @@
     </head> 
     <body>  
         <div class="navbar">
+            <a href="<?php echo 'index.php'; ?>">JeansStore</a>
             <a href="<?php echo 'authentification/inscription.html'; ?>">Login</a>
             <a href="<?php echo 'index.php'; ?>">Browse</a>
             <a href="<?php echo 'index.php'; ?>">Cart</a>
         </div>
-        <main>
-                <h1>JeansStore Online</h1>
+        <main class="main">
+                <h1>Welcome to JeansStore Online</h1>
         </main>
-        <footer>
-            &copy; <?php echo date('Y'); ?> Jeans Store
+        <footer class="footer">
+            &copy; <?php echo date('Y'); ?> JeansStore
         </footer>
     </body>
 </hmtl>
