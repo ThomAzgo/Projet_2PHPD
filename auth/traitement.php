@@ -7,6 +7,8 @@
         $email = htmlspecialchars($_POST['email']);
         $password = htmlspecialchars($_POST['password']);
         $password_retype = htmlspecialchars($_POST['password_retype']);
+        $postal = htmlspecialchars($_POST['postal']);
+        $phone = htmlspecialchars($_POST['phone']);
 
         $check = $bdd->prepare('SELECT nickname, email, password FROM jeanstore_user WHERE email = ?');
         $check->execute(array($email));
@@ -21,13 +23,13 @@
 
                     if(filter_var($email, FILTER_VALIDATE_EMAIL)){
 
-                        if(filter_var($postal) <= 5){
+                        if(filter_var($postal) <= 32){
 
-                            if(filter_var($phone) <= 8){
+                            if(filter_var($phone) <= 32){
 
-                                if(filter_var($postal, FILTER_VALIDATE_POSTAL)){
+                                if(filter_var($postal, ISNUMERIC)){
 
-                                    if(filter_var($phone, FILTER_VALIDATE_PHONE)){
+                                    if(filter_var($phone, ISNUMERIC)){
 
                                         if ($password == $password_retype){
 

@@ -3,14 +3,18 @@
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" media="all" href="../stylesheets/style.css" />
 
             <!-- bootstrap -->
             <link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet" />
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
-            <title>Inscription</title>
+            <title>Log in</title>
         </head>
         <body>
+        <?php
+            require_once '../functions/navbar.php';
+        ?>
         <div class="login-form">
             <?php 
                 if(isset($_GET['reg_err']))
@@ -19,13 +23,10 @@
 
                     switch($err)
                     {
-
-                        // Inscription complété avec succès
-
                         case 'success':
                         ?>
                             <div class="alert alert-success">
-                                <strong>Success</strong> Registered successfully!
+                                <strong>Success</strong> Registered successfully
                             </div>
                         <?php
                         break;
@@ -105,8 +106,8 @@
                 }
                 ?>
             
-            <form action="inscription_traitement.php" method="post">
-                <h2 class="text-center">Inscription</h2>       
+            <form action="traitement.php" method="post">
+                <h2 class="text-center">Log in</h2>       
                 <div class="form-group">
                     <input type="text" name="nickname" class="form-control" placeholder="Nickname" required="required" autocomplete="off">
                 </div>
@@ -135,10 +136,13 @@
                     <input type="text" name="phone" class="form-control" placeholder="Phone" required="required" autocomplete="off">
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-block">Inscription</button>
+                    <button type="submit" class="btn btn-primary btn-block">Sign up</button>
                 </div>   
             </form>
         </div>
+        <?php
+            require_once '../functions/footer.php';
+        ?>
         <style>
             .login-form {
                 width: 340px;
