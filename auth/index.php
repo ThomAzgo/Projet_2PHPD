@@ -3,73 +3,91 @@
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <link rel="stylesheet" media="all" href="../stylesheets/style.css" />
 
             <!-- bootstrap -->
-            <link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet" />
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
             
             <title>Connexion</title>
         </head>
         <body>
-        <?php
-            require_once '../functions/navbar.php';
-        ?>
-        
-        <div class="login-form">
-             <?php 
-                if(isset($_GET['login_err']))
-                {
-                    $err = htmlspecialchars($_GET['login_err']);
 
-                    switch($err)
-                    {
-                        case 'password':
-                        ?>
-                            <div class="alert alert-danger">
-                                <strong>Erreur</strong> mot de passe incorrect
-                            </div>
-                        <?php
-                        break;
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+            <a href="../index.php" class="navbar-brand">JeansStore</a>
 
-                        case 'email':
-                        ?>
-                            <div class="alert alert-danger">
-                                <strong>Erreur</strong> email incorrect
-                            </div>
-                        <?php
-                        break;
-
-                        case 'already':
-                        ?>
-                            <div class="alert alert-danger">
-                                <strong>Erreur</strong> compte non existant
-                            </div>
-                        <?php
-                        break;
-                    }
-                }
-                ?> 
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             
-            <form action="connexion.php" method="post">
-                <h2 class="text-center">Login</h2>       
-                <div class="form-group">
-                    <input type="email" name="email" class="form-control" placeholder="Email" required="required" autocomplete="off">
-                </div>
-                <div class="form-group">
-                    <input type="password" name="password" class="form-control" placeholder="Password" required="required" autocomplete="off">
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-block">Log in</button>
-                </div>   
-            </form>
-            <p class="text-center"><a href="inscription.php">Sign up</a></p>
-        </div>
+            <div class="collapse navbar-collapse" id="navbarMenu">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a href="index.php" class="nav-link">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../cart/index.php" class="nav-link">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/../cart/cart.php" class="nav-link">Cart</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+            
+            <div class="login-form">
+                <?php 
+                    if(isset($_GET['login_err']))
+                    {
+                        $err = htmlspecialchars($_GET['login_err']);
 
-        <?php
-            require_once '../functions/footer.php';
-        ?>
+                        switch($err)
+                        {
+                            case 'password':
+                            ?>
+                                <div class="alert alert-danger">
+                                    <strong>Erreur</strong> mot de passe incorrect
+                                </div>
+                            <?php
+                            break;
+
+                            case 'email':
+                            ?>
+                                <div class="alert alert-danger">
+                                    <strong>Erreur</strong> email incorrect
+                                </div>
+                            <?php
+                            break;
+
+                            case 'already':
+                            ?>
+                                <div class="alert alert-danger">
+                                    <strong>Erreur</strong> compte non existant
+                                </div>
+                            <?php
+                            break;
+                        }
+                    }
+                    ?> 
+                
+                <form action="connexion.php" method="post">
+                    <h2 class="text-center">Login</h2>       
+                    <div class="form-group">
+                        <input type="email" name="email" class="form-control" placeholder="Email" required="required" autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password" class="form-control" placeholder="Password" required="required" autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block">Confirm</button>
+                    </div>   
+                </form>
+                <p class="text-center"><a href="inscription.php">New here? Sign up now</a></p>
+            </div>
+
         </body>
+
+        <!-- bootstrap -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </html>
 
 <style>
