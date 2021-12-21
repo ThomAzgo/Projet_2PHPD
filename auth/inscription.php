@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-    <html lang="en">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-            <!-- bootstrap -->
-            <link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet" />
-            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <!-- bootstrap -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
-            <title>Log in</title>
-        </head>
+        <title>Log in</title>
+    </head>
     <body>
+
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
             <a href="../index.php" class="navbar-brand">JeansStore</a>
 
@@ -24,10 +25,7 @@
                         <a href="index.php" class="nav-link">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a href="../cart/index.php" class="nav-link">Products</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../cart/cart.php" class="nav-link">Cart</a>
+                        <a href="../cart/index.php" class="nav-link">Shop</a>
                     </li>
                 </ul>
             </div>

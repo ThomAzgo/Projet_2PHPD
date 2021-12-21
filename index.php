@@ -12,7 +12,7 @@
         </head>
         <body>
             <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-                <a href="../index.php" class="navbar-brand">JeansStore</a>
+                <a href="index.php" class="navbar-brand">JeansStore</a>
 
                 <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
                     <span class="navbar-toggler-icon"></span>
@@ -24,18 +24,29 @@
                             <a href="auth/index.php" class="nav-link">Login</a>
                         </li>
                         <li class="nav-item">
-                            <a href="cart/index.php" class="nav-link">Products</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="cart/cart.php" class="nav-link">Cart</a>
+                            <a href="cart/index.php" class="nav-link">Shop</a>
                         </li>
                     </ul>
                 </div>
             </nav>
 
             <div class="text-white">
-                <h1 class="text-center display-5">Welcome to the JeansStore online shop</h1>
-                <h2 class="text-center display-6">Browse our products and order now!<h2>
+                <?php
+                    if(isset($_SESSION['user'])){ ?>
+                        <br>
+                        <h1 class="text-center display-5">Welcome back to JeansStore <?php echo $_SESSION['user']; ?></h1>
+                        <h2 class="text-center display-6">Browse our products and order now!<br>
+                        <a href="deconnexion.php" class="btn-danger btn-lg">Log Out</a></h2>
+                    <?php
+                    } else { ?>
+                        <br>
+                        <h1 class="text-center display-5">Welcome visitor to the JeansStore online shop</h1>
+                        <h2 class="text-center display-6">Register to order now!<br>
+                        <a href="auth/inscription.php" class="btn-info btn-lg">Register</a></h2>
+                    <?php
+                    }
+                ?>
+                
             </div>
 
             <!-- bootstrap -->
