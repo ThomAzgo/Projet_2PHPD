@@ -30,8 +30,10 @@
                             $password = hash('sha256', $password);
 
                             $ip = $_SERVER['REMOTE_ADDR'];
+                            
+                            echo "toto";
 
-                            $insert = $bdd->prepare('INSERT INTO jeanstore_user(nickname, email, password, billing_adress, postal, country, phone) VALUES(:nickname, :email, :password, :billing_adress, :postal, :country, :phone)');
+                            $insert = $bdd->prepare('INSERT INTO jeanstore_users(nickname, email, password, billing_adress, postal, country, phone) VALUES(:nickname, :email, :password, :billing_adress, :postal, :country, :phone)');
                             $insert-> execute(array(
                                 'nickname' => $nickname,
                                 'email' => $email,

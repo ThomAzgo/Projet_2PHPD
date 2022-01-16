@@ -1,8 +1,8 @@
 <?php
 session_start();
-$product_ids = array();
+$product_id = array();
 
-//Verifie si une panier existe
+//Verifie si un panier existe
 if(filter_input(INPUT_POST, 'add_to_cart')){
     if(isset($_SESSION['shopping_cart'])){
 
@@ -10,9 +10,9 @@ if(filter_input(INPUT_POST, 'add_to_cart')){
         $count = count($_SESSION['shopping_cart']);
 
         //créer une seconde array qui fait correspondre les "key" aux "id" des produits
-        $product_ids = array_column($_SESSION['shopping_cart'], 'id');
+        $product_id = array_column($_SESSION['shopping_cart'], 'id');
 
-        if(!in_array(filter_input(INPUT_GET, 'id'), $products_ids)){
+        if(!in_array(filter_input(INPUT_GET, 'id'), $product_id)){
             $_SESSION['shopping_cart'][$count] = array
             (
                 'id' => filter_input(INPUT_GET, 'id'),
@@ -23,8 +23,8 @@ if(filter_input(INPUT_POST, 'add_to_cart')){
         }
         else { //les produits déjà existant font augmenter la quantité du panier
             //fait correspondre les "key" aux "id" de l'article ajouté au panier
-            for ($i = 0; $i < count($product_ids); $i++) {
-                if ($product_ids[$i] == filter_input(INPUT_GET, 'id')){
+            for ($i = 0; $i < count($product_id); $i++) {
+                if ($product_id[$i] == filter_input(INPUT_GET, 'id')){
                     //ajoute la quantité d'articles existante dans l'array
                     $_SESSION['shopping_cart'][$i]['quantity'] += filter_input(INPUT_POST, 'quantity');
                 }
@@ -86,36 +86,32 @@ if(filter_input(INPUT_GET, 'action') == 'delete'){
         </div>
     </nav>
     <?php
-        require_once '../auth/config.php';
         require_once 'config.php';
 
         $query = 'SELECT * FROM jeanstore_products ORDER by id ASC';
-        $result = mysqli_query($connect, $query);
+        $result = $bdd->query($query);
 
     if($result):
-        if(mysqli_num_rows($result)>0):
-            while($product = mysqli_fetch_assoc($result)):
-            print_r($product);
-            ?>
-            <div class="container">
-                <div class="col-sm-4 col-md-3">
-                    <form method="post" action="index.php?action=add&id=<?php echo $jeanstore_products['id'] ?>">
-                    <div class="products">
-                        <img src="<?php echo $product['image'];?>" class="img-responsive" />
-                        <h4 class="text-info"><?php echo $product['name']; ?></h4>
-                        <h4><?php echo $product['price'];?> € </h4>
-                        <input type="text" name="quantity" class="form-control" value="1" />
-                        <input type="hidden" name="name" value="<?php echo $product['name']; ?>" />
-                        <input type="hidden" name="price" value="<?php echo $product['price']; ?>" />
-                        <input type="submit" name="add_to_cart" style="margin-top:5px;" class="btn btn-info" value="Add to Cart" />
-                    </div>
+        foreach($result as $product) {
+        ?>
+        <div class="container">
+            <div class="col-sm-4 col-md-3">
+                <form method="post" action="index.php?action=add&id=<?php echo $product['id'] ?>">
+                <div class="products">
+                    <img src="<?php echo $product['image'];?>" class="img-responsive" />
+                    <h4 class="text-info"><?php echo $product['name']; ?></h4>
+                    <h4><?php echo $product['price'];?> € </h4>
+                    <input type="text" name="quantity" class="form-control" value="1" />
+                    <input type="hidden" name="name" value="<?php echo $product['name']; ?>" />
+                    <input type="hidden" name="price" value="<?php echo $product['price']; ?>" />
+                    <input type="submit" name="add_to_cart" style="margin-top:5px;" class="btn btn-info" value="Add to Cart" />
                 </div>
             </div>
-            <?php
-            endwhile;
-        endif;
+        </div>
+        <?php
+        }
     endif;
-    ?>
+        ?>
     <div style="clear:both"></div>
     <br/>
     <div class="table-responsive">
@@ -130,7 +126,6 @@ if(filter_input(INPUT_GET, 'action') == 'delete'){
             </tr>
             <?php
             if(!empty($_SESSION['shopping_cart'])):
-                if(isset($_SESSION['user'])):
                     $total = 0;
 
                     foreach($_SESION['shopping_cart'] as $key => $product):
@@ -161,7 +156,7 @@ if(filter_input(INPUT_GET, 'action') == 'delete'){
                     </td>
             </tr>
             <?php
-                endif;
+                // endif;
             ?>
         </table>
     </div>

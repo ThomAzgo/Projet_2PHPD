@@ -1,7 +1,7 @@
 <?php
     try
     {
-        $bdd = new PDO('mysql:host=localhost;dbname=jeanstore_users;charset=utf8','root','');
+        $bdd = new PDO('mysql:host=localhost;dbname=jeanstore_projet','root','');
     }
     catch(Exception $e)
     {

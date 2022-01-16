@@ -82,8 +82,8 @@
                         <?php 
                     }
                 } ?>
-        
-            <form action="traitement.php" method="post">
+
+            <form method="post" action="traitement.php">
                 <h2 class="text-center">Sign Up</h2>       
                 <div class="form-group">
                     <input type="text" name="nickname" class="form-control" placeholder="Nickname" required="required" autocomplete="off">
@@ -113,7 +113,7 @@
                     <input type="text" name="phone" class="form-control" placeholder="Phone" required="required" autocomplete="off">
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-block">Confirm</button>
+                    <button type="submit" value="submit" class="btn btn-primary btn-block">Confirm</button>
                 </div>
             </form>
             <p class="text-center"><a href="index.php">already signed up? Login here</a></p>
