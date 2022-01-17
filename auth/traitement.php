@@ -13,7 +13,7 @@
         $country = htmlspecialchars($_POST['country']);
 
 
-        $check = $bdd->prepare('SELECT nickname, email, password FROM jeanstore_user WHERE email = ?');
+        $check = $bdd->prepare('SELECT nickname, email, password FROM jeanstore_users WHERE email = ?');
         $check->execute(array($email));
         $data = $check->fetch();
         $row = $check->rowCount();
@@ -28,11 +28,7 @@
 
                             $cost = ['cost' => 12];
                             $password = hash('sha256', $password);
-
                             $ip = $_SERVER['REMOTE_ADDR'];
-                            
-                            echo "toto";
-
                             $insert = $bdd->prepare('INSERT INTO jeanstore_users(nickname, email, password, billing_adress, postal, country, phone) VALUES(:nickname, :email, :password, :billing_adress, :postal, :country, :phone)');
                             $insert-> execute(array(
                                 'nickname' => $nickname,

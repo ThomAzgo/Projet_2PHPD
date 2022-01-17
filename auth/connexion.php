@@ -7,7 +7,7 @@
         $email = htmlspecialchars($_POST['email']);
         $password = htmlspecialchars($_POST['password']);
 
-        $check = $bdd->prepare('SELECT nickname, email, password FROM jeanstore_user WHERE email = ?');
+        $check = $bdd->prepare('SELECT nickname, email, password FROM jeanstore_users WHERE email = ?');
         $check->execute(array($email));
         $data = $check->fetch();
         $row = $check->rowCount();

@@ -1,6 +1,7 @@
 <?php
 session_start();
 $product_id = array();
+// $id = (int) $_POST['id'];
 
 //Verifie si un panier existe
 if(filter_input(INPUT_POST, 'add_to_cart')){
@@ -95,7 +96,7 @@ if(filter_input(INPUT_GET, 'action') == 'delete'){
         foreach($result as $product) {
         ?>
         <div class="container">
-            <div class="col-sm-4 col-md-3">
+            <div class="container">
                 <form method="post" action="index.php?action=add&id=<?php echo $product['id'] ?>">
                 <div class="products">
                     <img src="<?php echo $product['image'];?>" class="img-responsive" />
@@ -128,19 +129,21 @@ if(filter_input(INPUT_GET, 'action') == 'delete'){
             if(!empty($_SESSION['shopping_cart'])):
                     $total = 0;
 
-                    foreach($_SESION['shopping_cart'] as $key => $product):
+                    foreach($_SESSION['shopping_cart'] as $key => $product):
                 ?>
-                <tr>
-                    <td><?php echo $product['name'] ?></td>
-                    <td><?php echo $product['quantity'] ?></td>
-                    <td>$ <?php echo $product['price'] ?></td>
-                    <td>$ <?php echo number_format($product['quantity'] * $product['price'], 2); ?></td>
-                    <td>
-                        <a href="cart.php?action=delete&id=<?php echo $product['id']; ?>">
-                            <div class="btn-danger">Remove</div>
-                        </a>
-                    </td>
-                </tr>
+                    <tr>
+                        <td><?php echo $product['name'] ?></td>
+                        <td><?php echo $product['quantity'] ?></td>
+                        <td><?php echo $product['price'] ?> €</td>
+                        <td><?php echo number_format($product['quantity'] * $product['price'], 2); ?> €</td>
+                        <td>
+                            <form method="POST">
+                                <input type="hidden" name="_METHOD" value="DELETE">
+                                <input type="hidden" name="id" value="<?php (int) $_POST['id']; ?>">
+                                <button type="submit" class="alert alert-danger">Remove</button>
+                            </form>
+                        </td>
+                    </tr>
                 <?php //calcul prix total
                         $total = $total + ($product['quantity'] * $product['price']);
                     endforeach;
@@ -155,9 +158,6 @@ if(filter_input(INPUT_GET, 'action') == 'delete'){
                     <?php endif; endif; endif; ?>
                     </td>
             </tr>
-            <?php
-                // endif;
-            ?>
         </table>
     </div>
 </body>
