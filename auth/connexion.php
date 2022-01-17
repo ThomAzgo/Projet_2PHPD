@@ -18,9 +18,9 @@
                 $password = hash('sha256', $password);
                 if($data['password'] === $password){
                     $_SESSION['user'] = $data['nickname'];
-                    header('Location:../index.php');
+                    header('Location:../redirect.php');
 
-                } else header('Location:index.php?login_err=password');
+                } else header('Location:inscription.php?login_err=password');
             } else header('Location:index.php?login_err=email');  
         } else header('Location:index.php?login_err=already');
     } else header('Location:index.php');

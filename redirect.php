@@ -31,18 +31,10 @@
             </nav>
 
             <div class="text-white">
-                <?php
-                    if(isset($_SESSION['user'])){
-                        header("Location: redirect.php");
-                    } else { ?>
-                        <br>
-                        <h1 class="text-center display-5">Welcome visitor to the JeansStore online shop</h1>
-                        <h2 class="text-center display-6">Register to order now!<br>
-                        <a href="auth/inscription.php" class="btn-info btn-lg">Register</a></h2>
-                    <?php
-                    }
-                ?>
-                
+                <br>
+                <h1 class="text-center display-5">Welcome back to JeansStore <?php echo $_SESSION['user']; ?></h1>
+                <h2 class="text-center display-6">Browse our products and order now!<br>
+                <a href="deconnexion.php" class="btn-danger btn-lg">Log Out</a></h2>      
             </div>
 
             <!-- bootstrap -->

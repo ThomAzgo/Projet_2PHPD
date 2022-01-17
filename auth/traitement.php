@@ -41,7 +41,7 @@
                                 'phone' => $phone
                             ));
                             //Inscription complété avec succès
-                            header('Location:inscription.php?reg_err=success'); die();
+                            header('Location:connexion.php?reg_err=success'); die();
                         }
                     } else {header('Location: inscription.php?reg_err=email'); die();}
                 } else {header('Location: inscription.php?reg_err=email_length'); die();}
